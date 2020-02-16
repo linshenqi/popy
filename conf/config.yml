@@ -1,0 +1,44 @@
+
+log:
+  file: STDOUT
+  level: DEBUG
+  max_age: 1000h
+  rotate: 24h
+
+http:
+  addr: :10026
+
+model:
+  enable: true
+  source: postgres
+  name: popy
+  user: admin
+  pwd: admin
+  host: 127.0.0.1
+  port: 5432
+
+oauth:
+  endpoints:
+    wechat_oauth:
+      type: wechat_oauth
+      app_id: 1
+      app_secret: 1
+    alipay_oauth:
+      type: alipay_oauth
+      app_id: 1
+      app_secret: 1
+      public_key: pub
+
+jwt:
+  expiry: 24h
+
+totp:
+  endpoints:
+    sms:
+      issuer: i1
+      code_len: 4
+      expiry: 60s
+    email:
+      issuer: i1
+      code_len: 6
+      expiry: 10m
